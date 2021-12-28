@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="form-group col-sm-4">
                         {!! Form::label('status', 'Status') !!}
-                        {!! Form::select('status', [null => 'すべて', '0' => '未対応', '1' => '処理中', '2' => '処理済み', '3' => '完了'], '', ['class' => 'form-control custom-select']) !!}
+                        {!! Form::select('status', [null => 'すべて', '0' => '未対応', '1' => '処理中', '2' => '処理済み', '3' => '完了'], $status, ['class' => 'form-control custom-select']) !!}
                     </div>
                     <div class="form-group col-sm-2 mt-4 pt-2">
                         {!! Form::hidden('sort', $sort, ['class' => 'form-control']) !!}

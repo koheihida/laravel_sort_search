@@ -30,11 +30,12 @@ class TodoController extends AppBaseController
      */
     public function index(Request $request)
     {
+        $status = $request->input('status');
         $sort = $request->input('sort');
-        $todos = $this->todoRepository->search($sort);
+        $todos = $this->todoRepository->search($status, $sort);
 
 
-        return view('todos.index', compact('sort', 'todos'));
+        return view('todos.index', compact('status','sort', 'todos'));
     }
 
     /**
