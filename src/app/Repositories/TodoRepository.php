@@ -41,9 +41,10 @@ class TodoRepository extends BaseRepository
     {
         return Todo::class;
     }
-    public function search($status,$sort)
+    public function search($queryText, $status, $sort)
     {
         $query = Todo::where('user_id', Auth::id());
+        if ($queryText !== null) $query->where('title', 'LIKE', "%$queryText%");
         if ($status !== null) $query->where('status', $status);
         if ($sort === 'titleAsc') $query->orderBy('title', 'asc');
         if ($sort === 'titleDesc') $query->orderBy('title', 'desc');
