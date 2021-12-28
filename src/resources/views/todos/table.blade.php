@@ -11,6 +11,7 @@
         @foreach($todos as $todo)
             <tr>
                 <td>{{ $todo->title }}</td>
+                <td>{{ $todo->status_name }}</td>
             <td>{{ $todo->status }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['todos.destroy', $todo->id], 'method' => 'delete']) !!}
